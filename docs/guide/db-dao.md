@@ -76,7 +76,7 @@ $primaryConnection = \Yii::$app->db;
 $secondaryConnection = \Yii::$app->secondDb;
 ```
 
-If you don't want to define the connection as an application component you can instantiate it directly:
+If you don't want to define the connection as an [application component](structure-application-components.md) you can instantiate it directly:
 
 ```php
 $connection = new \yii\db\Connection([
@@ -229,7 +229,7 @@ In order to securely pass query parameters you can use prepared statements:
 ```php
 $command = $connection->createCommand('SELECT * FROM post WHERE id=:id');
 $command->bindValue(':id', $_GET['id']);
-$post = $command->query();
+$post = $command->queryOne();
 ```
 
 Another usage is performing a query multiple times while preparing it only once:
